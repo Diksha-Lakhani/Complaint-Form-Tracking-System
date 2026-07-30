@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* 1. Define the animation steps - becuase it is pulsate, it will continue for infinte time*/
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* Grow slightly */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.content1_container{
+    padding: 70px;
+    font-family:"Poppins";
+    text-align: center;
+    color:#427F8C;
+    background: linear-gradient(to bottom, #E8E8E8, #FFFFFF);
+}
+
+.content_container{
+    gap:50px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.content_box{
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(66, 127, 140, 0.89);
+    height:150px;
+    width: 350px;
+    flex-direction: column;
+    animation: pulsate 2.5s infinite ease-in-out;
+}

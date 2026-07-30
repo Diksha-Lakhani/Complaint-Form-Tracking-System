@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.footer_container {
+  background: linear-gradient(to bottom, #509AAB, #164D59);
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-overlay_footer {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  /* So it doesn't block clicks */
+
+  /* Creates repeating transparent/white lines */
+  background: repeating-radial-gradient(circle at center,
+      transparent,
+      transparent 40px,
+      /* The space between lines (Adjust this for more/less gap) */
+      rgba(255, 255, 255, 0.25) 41px,
+      /* The line starts at 81px */
+      rgba(255, 255, 255, 0.25) 42px
+      /* The line ends at 82px (1px thick) */
+    );
+}
+
+/* Positioning the top-right set */
+.top-right_footer {
+  top: -500px;
+  right: -500px;
+}
+
+/* Positioning the bottom-left set */
+.bottom-left_footer {
+  bottom: -500px;
+  left: -500px;
+}
+
+.footer_contact {
+  font-family: "Poppins";
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title1 {
+  font-family: "Luckiest Guy";
+  font-size: 40px;
+}
+
+.footer_btn {
+  justify-content: right;
+  display: flex;
+  gap: 10px;
+}
+
+.contact_btn {
+  border-radius: 100px;
+  background: #FFBB00;
+  height: 50px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact_btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact_btn:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.title_container{
+    text-align: center;
+}
+.recent_complaints_container{
+    padding: 70px;
+    font-family:"Poppins";
+    color:#427F8C;
+    background: linear-gradient(to bottom, #E8E8E8, #FFFFFF);
+}
+.complaints_container{
+    color: white;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.complaints_box {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(66, 127, 140, 0.89);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.complaints_box:hover {
+    transform: scale(1.03);
+    background: rgba(66, 127, 140, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.date_name{
+    display: flex;
+    gap: 30px;
+}
+.track_btn_container button{
+    background:#BDBDBD;
+    font-family:"Poppins";
+    font-size: 20px;
+    border:none;
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+    color: white;
+    padding:5px 30px;
+    cursor:pointer;
+}
+.track_btn_container button:hover {
+    background-color: #FFBB00; 
+    color: black; 
+    transition: background-color,color 0.3s ease; /* Makes the color fade in smoothly */
+}
+.track_btn_container{
+    display: flex;
+    justify-content: center;
+}
+.complaints_box p{
+    text-align: left;
+    font-size: 15px;
+}
+.right_arrow{
+    display: flex;
+    align-items: center;
+}
+.progress_bar {
+    display: flex;
+    gap: 8px;           
+    margin: 10px 0;     
+    width: 100%;        
+}
+.step {
+    height: 6px;        
+    flex: 1;            
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 10px; 
+}
+
+.completed {
+    background-color: #24822c; 
+}

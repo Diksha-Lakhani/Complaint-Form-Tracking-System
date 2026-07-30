@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.official-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Poppins";
+}
+
+.official-card.reversed {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.official-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50px; /* Gives that rounded square look */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.official-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.role {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #444;
+}

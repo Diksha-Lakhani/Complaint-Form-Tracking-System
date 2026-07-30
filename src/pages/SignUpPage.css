@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.signup_page{
+    background: linear-gradient(to bottom, #509AAB, #164D59);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

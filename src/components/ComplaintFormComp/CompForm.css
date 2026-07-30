@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.complaint_form_container{
+    font-family:"Poppins";
+    padding: 20px 70px;
+    color:#427F8C;
+    background: linear-gradient(to bottom, #FFFFFF, #CCCCCC);
+}
+.category{
+    display: flex;
+    gap: 10px;
+}
+.complaint_form {
+    background-color: #427F8C;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 30px auto;
+}
+.complaint_subcontainer h1,p{
+    text-align: center;
+}
+.complaint_form label {
+    display: block;
+    margin-top: 10px;
+}
+.complaint_form input,textarea{
+    font-family:"Poppins";
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: none;
+    color: #919191;
+}
+.complaint_form select {
+    font-family:"Poppins";
+    border-radius: 90px;
+    border: none;
+    appearance: none;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #C75858;
+}
+.complaint_form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+.contact_info_container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+.location_pin_container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap:10px;
+}
+.left_align{
+    text-align: left;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.back_btn{
+    display: flex;         
+    align-items: center;   
+    justify-content: center;
+    gap: 8px; 
+    background: #394866;
+    color: white;
+    font-family:"Poppins";
+    border: none;
+    padding: 10px 20px;
+    margin-top: 0px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.back_btn:hover{
+    transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.back_btn:active{
+    transform: scale(0.98);
+}
+.upload_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-color: white;
+    border-radius: 10px;
+    color: #919191;
+    padding: 40px 0;
+}
+.back_btn_span{
+    display: flex;
+    align-items: center;
+}
+.submit_btn {
+    font-size: 20px;         
+    font-family:"Poppins";
+    background-color: #FFBB00;
+    color: black;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 20%;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.submit_btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.submit_btn:active{
+    transform: scale(0.98);
+}
+.submit_btn_container{
+    display: flex;
+    justify-content: center;
+}

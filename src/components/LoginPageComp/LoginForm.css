@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.login_container {
+    font-family: "Poppins", sans-serif;
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    width: 30vw;
+    min-height: 70vh; 
+    margin: 20px auto;
+    text-align: left;
+}
+
+.login_button_container{
+    display:grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    margin: 20px 0;
+    padding: 5px;
+    gap: 10px;
+}
+.btn{
+    font-family:"Poppins";
+    background: #E8F1FF;
+    border: none;
+    border-radius: 10px;
+}
+.signin_btn{
+    background:#FFBB00;
+    border:none;
+    width:95%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    padding:10px 50px;
+    cursor:pointer;
+    margin-top: 20px
+}
+h2{
+    font-size: 20px;
+    margin: 0;
+}
+.signin{
+    font-size:40px;
+    font-weight: bold;
+}
+.signup{
+    font-size:12px;
+    color:#8D8D8D;
+    text-align: left;
+}
+.welcome{
+    text-align: left;
+    padding: 10px;
+}
+.signin_container{
+    display: flex;
+    justify-content: space-between;
+}
+.btn{
+    padding: 10px;
+}
+.loginform{
+    margin: 30px 0 0 0;
+}
+.input{
+    width: 90%;
+    padding: 15px;
+    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.forgotPassword{
+    text-align: right;
+    font-size: 12px;
+}
+.sign_in_link{
+    cursor: pointer;
+    color: #0089EC;
+    text-decoration: "none";
+}

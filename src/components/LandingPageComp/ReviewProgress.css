@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.review_container{
+    padding: 70px;
+    font-family:"Poppins";
+    color:#427F8C;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #E8E8E8, #FFFFFF);
+}
+.review_container h1{
+    text-align: center;
+}
+.progress_container{
+    gap:20px;
+    display: flex;
+    color: #dadada;
+    width: 100%;
+}
+.progress_box{
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(66, 127, 140, 0.89);
+    height:70px;
+    flex:1;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.progress_box:hover {
+    transform: scale(1.03);
+    background: rgba(66, 127, 140, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.progress_box:hover .yellow{
+    color: #FFBB00;
+}
+.inside_progress_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

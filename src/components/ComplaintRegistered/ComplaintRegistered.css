@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.register_container {
+    min-height: 70vh;
+    background: linear-gradient(to bottom, #FFFFFF, #CCCCCC);
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+.tracking_btn_container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+.registered_box {
+    background-color: #427e8c87;
+    width: 100%;
+    padding: 60px 20px;
+    border-radius: 40px;
+    text-align: center;
+    color: #1A1A1A;
+}
+.icon_circle_container {
+    display: flex;
+    justify-content: center;
+}
+.icon_circle {
+    margin-bottom: 20px;
+    border-radius: 100px;
+    width: 80px;
+    height: 80px;
+    background-color: #A8D5BA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sub_text {
+    color: #555;
+    margin-bottom: 15px;
+}
+.track_id_badge1 {
+    display: inline-block;
+    background-color: #C7C7C7;
+    padding: 12px 30px;
+    border-radius: 15px;
+    font-size: 20px;
+    border: 3px dashed #999;
+    margin-bottom: 20px;
+}
+.footer_text {
+    color: #444;
+    font-size: 14px;
+}
+.back_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #394866;
+    color: white;
+    font-family: "Poppins";
+    border: none;
+    padding: 10px 20px;
+    margin-top: 0px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.back_btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.back_btn:active {
+    transform: scale(0.98);
+}
+.tracking_btn {
+    font-family: "Poppins";
+    background: #FFBB00;
+    color: #1A1A1A;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.tracking_btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.tracking_btn:active {
+    transform: scale(0.98);
+}
