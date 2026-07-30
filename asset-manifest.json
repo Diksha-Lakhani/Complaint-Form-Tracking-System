@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Diksha-Lakhani/Complaint-Form-Tracking-System.git/static/css/main.d4b715c7.css",
+    "main.js": "/Diksha-Lakhani/Complaint-Form-Tracking-System.git/static/js/main.2248e965.js",
+    "index.html": "/Diksha-Lakhani/Complaint-Form-Tracking-System.git/index.html",
+    "main.d4b715c7.css.map": "/Diksha-Lakhani/Complaint-Form-Tracking-System.git/static/css/main.d4b715c7.css.map",
+    "main.2248e965.js.map": "/Diksha-Lakhani/Complaint-Form-Tracking-System.git/static/js/main.2248e965.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d4b715c7.css",
+    "static/js/main.2248e965.js"
+  ]
+}
