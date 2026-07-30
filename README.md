@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# Complaint Form Tracking System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern web application that streamlines the process of registering, tracking, and managing complaints. The system provides an intuitive interface for users to submit complaints while allowing them to monitor the status of their requests through a dedicated tracking system.
+
+---
+
+## Features
+
+- User Authentication
+  - Login
+  - Sign Up
+  - Forgot Password
+
+- Complaint Registration
+  - Easy-to-use complaint submission form
+  - Organized complaint categories
+  - Complaint registration confirmation
+
+- Complaint Tracking
+  - Track complaint status
+  - View complaint progress
+  - Monitor updates
+
+- Landing Page
+  - Complaint categories
+  - Recent complaints section
+  - User reviews
+  - Progress indicators
+
+- Responsive User Interface
+  - Modern design
+  - Reusable React components
+  - Clean navigation
+
+---
+
+## Tech Stack
+
+- React.js
+- React Router DOM
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Lucide React
+- Swiper.js
+
+---
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/Diksha-Lakhani/Complaint-Form-Tracking-System.git
+```
+
+Navigate to the project
+
+```bash
+cd Complaint-Form-Tracking-System
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the application
+
+```bash
+npm start
+```
+
+The application will run on
+
+```
+http://localhost:3000
+```
+
+---
 
 ## Available Scripts
 
-In the project directory, you can run:
+```bash
+npm start
+```
 
-### `npm start`
+Runs the application in development mode.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm test
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Launches the test runner.
 
-### `npm test`
+```bash
+npm run build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Builds the application for production.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Future Enhancements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Backend integration
+- Database support
+- Admin dashboard
+- Complaint assignment to officials
+- Real-time complaint status updates
+- Complaint analytics dashboard
+- User profile management
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Learning Outcomes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project helped in understanding:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React component architecture
+- React Router navigation
+- State management
+- Reusable UI components
+- Responsive web design
+- Frontend project organization
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Author
 
-## Learn More
+**Diksha Lakhani**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Computer Science Engineering Student
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Vellore Institute of Technology
