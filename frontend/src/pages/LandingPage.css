@@ -1,0 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.landing-page-container{
+    background: linear-gradient(to bottom, #509AAB, #164D59);
+}

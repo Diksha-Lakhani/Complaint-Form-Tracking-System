@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.track_container {
+    font-family: 'Poppins';
+    background: linear-gradient(to bottom, #FFFFFF, #CCCCCC);
+    min-height: 100vh;
+    padding: 30px 10%;
+    color: #333;
+}
+.complaint_box{
+    background-color: #427e8ca0; 
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+.track_search_row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.track_search_row input {
+    font-family: 'Poppins';
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #D9D9D9;
+}
+.tp_track_btn {
+    font-family: 'Poppins';
+    background: #FFBB00;
+    border: none;
+    padding: 0 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.tp_track_btn:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.tp_track_btn:active{
+  transform: scale(0.98);
+}
+.track_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.track_card{
+    background-color: #427e8c58;
+    border-radius: 0px 0px 20px 20px;
+    padding: 10px;
+    width: 100%;  
+    box-sizing: border-box;  
+}
+.track_id_badge {
+    background: #427e8ccc;
+    color: rgb(219, 219, 219);
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 20px 20px 0px 0px;
+    font-size: 12px;
+    margin-bottom: 0px;
+    width: 100%;
+    border:none;
+    box-sizing: border-box;
+}
+.official{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius:20px;
+    
+}
+.track_info{
+    margin-top: 20px;
+    font-size: 12px;
+    display: flex;
+    gap: 10px;
+    color: #6B6B6B;
+}
+.track_contact_btns {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+.track_contact_btns button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    border:none;
+    background: #D4D4D4;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.track_contact_btns button:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.track_contact_btns button:active{
+  transform: scale(0.98);
+}
+
+.track_timeline_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #427e8ca0; 
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.track_timeline_list {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+.track_timeline_list::before {
+    content: '';
+    position: absolute;
+    top: 5%; 
+    bottom: 0; 
+    left: 50%;
+    width: 4px;
+    height: 85%;
+    background: #555;
+    transform: translateX(-50%);
+}
+
+.tp_timeline_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.tp_step_indicator {
+    z-index: 2;
+    padding: 5px;
+}
+
+.tp_step_content {
+    position: absolute;
+}
+.left{
+    right: 60%;
+    text-align: right;
+}
+.right{
+    padding-left: 20px;
+    left: 55%;
+    text-align: left;
+}
+.icon_container_done{
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    background-color: #A8D5BA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+
+}
+.icon_container_current{
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(234, 234, 234);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+
+}
+.icon_container_pending{
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+
+}
+.icon_container_current:hover{
+    transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.icon_container_done:hover{
+    transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.icon_container_pending:hover{
+    transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.icon_done { 
+    color: #2D8A4E; 
+    fill: #A8D5BA; 
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.icon_current { 
+    color: #394866; 
+    fill: rgb(234, 234, 234); 
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.icon_pending { 
+    color: #666; 
+    fill: #ccc; 
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.icon_done:hover{
+    transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.icon_current:hover{
+    transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.icon_pending:hover{
+    transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}

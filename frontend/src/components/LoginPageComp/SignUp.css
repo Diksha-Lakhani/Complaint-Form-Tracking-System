@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+.signin_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.welcome {
+    text-align: left;
+    padding: 10px 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.signin {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.signup {
+    font-size: 12px;
+    color: #8D8D8D;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.loginform {
+    margin: 20px 0;
+}
+
+.input {
+    width: 95%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: "Poppins";
+}
+
+label {
+    font-size: 14px;
+}
+
+.signin_btn {
+    background: #FFBB00;
+    border: none;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    
+}

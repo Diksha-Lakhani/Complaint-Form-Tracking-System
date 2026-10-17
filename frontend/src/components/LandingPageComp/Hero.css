@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.homepage-header {
+  background: linear-gradient(to bottom, #509AAB, #164D59);
+  text-align: center;
+  font-family: "Poppins";
+  color: white;
+  min-height: 90vh;
+  width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-overlay {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none; /* So it doesn't block clicks */
+
+  /* Creates repeating transparent/white lines */
+  background: repeating-radial-gradient(circle at center,
+      transparent,
+      transparent 60px,
+      /* The space between lines (Adjust this for more/less gap) */
+      rgba(255, 255, 255, 0.25) 61px,
+      /* The line starts at 61px */
+      rgba(255, 255, 255, 0.25) 62px
+      /* The line ends at 62px (1px thick) */
+    );
+}
+
+/* Positioning the top-right set */
+.top-right {
+  top: -500px;
+  right: -500px;
+}
+
+/* Positioning the bottom-left set */
+.bottom-left {
+  bottom: -500px;
+  left: -500px;
+}
+
+.trackid-input {
+  border: 1px solid #ccc;
+  font-family: "Poppins";
+  border-radius: 10px;
+  padding: 10px;
+  width: 70%;
+  background: #EBEBEB;
+}
+
+.search-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar-field {
+  display: flex;
+  gap: 10px;
+  width: 60%;
+  justify-content: center;
+}
+
+.track-btn {
+  background: #FFBB00;
+  font-family: "Poppins";
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  border-radius: 10px;
+  color: black;
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.track-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.track-btn:active {
+  transform: scale(0.98);
+}
+
+.your-voice-text {
+  font-size: 55px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  overflow: hidden; /* Clips the words so they emerge from 'underneath' */
+}
+
+.word {
+  display: inline-block;
+  transform: translateY(100%); /* Start below the view */
+  opacity: 0;
+  animation: slideUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Animation Keyframes - tells to shift the text from bottom of the div to its original position with opacity 1*/
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.word:nth-child(1) {
+  animation-delay: 1.0s;
+}
+.word:nth-child(2) {
+  animation-delay: 1.3s;
+}
+.word:nth-child(3) {
+  animation-delay: 2.3s;
+}
+.word:nth-child(4) {
+  animation-delay: 2.6s;
+}

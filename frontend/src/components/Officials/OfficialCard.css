@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+.official_card_info{
+    border-radius: 15px;
+    padding: 20px 8%;
+    font-family: "Poppins";
+    background-color: rgb(255, 243, 243);
+    border-left: 6px solid #e11d48;
+}
+.official_card_info p{
+    text-align: left;
+}
+.Official_name{
+    color: #e11d48;
+}
