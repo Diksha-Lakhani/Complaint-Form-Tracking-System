@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function SignUp() {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -18,7 +19,7 @@ function SignUp() {
             const response = await fetch("http://localhost:4000/signup",{
                 method:"POST",
                 headers: {"Content-Type": "application/json",},
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ username, password, email }),
             });
             const data = await response.json();
             if(response.ok && data.result){
@@ -59,6 +60,11 @@ function SignUp() {
                     <div className="username_input">
                         <label htmlFor="username">Enter your username</label>
                         <input type="text" id="username" className="input" placeholder="Enter username " required value = {username} onChange={(e) => setUsername(e.target.value)}/>
+                    </div>
+
+                    <div className="email_input">
+                        <label htmlFor="emailAdd">Enter your Email Address</label>
+                        <input type="email" id="emailAdd" className="input" placeholder="Enter email address" required value = {email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
                     
                     <div className="password_input">
