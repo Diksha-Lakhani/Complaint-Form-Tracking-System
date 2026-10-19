@@ -25,6 +25,9 @@ function SignUp() {
                 alert("Account Created!");
                 navigate("/");
             }else{
+                setPassword("");
+                setUsername("");
+                setConfirmPassword("");
                 alert("Registartion failed, try another username.")
             }
         }catch(err){

@@ -38,17 +38,25 @@ app.post("/signup", async(req,res)=>{
     }
 });
 
-// app.post("/login",(req,res)=>{
-//     const username = req.body.username;
-//     const password = req.body.password;
-
-//     if(username==user && password==pass){
-        
-//     }
-//     else{
-//         alert("Wrong email or password");
-//     }
-// });
+app.post("/login", async(req,res)=>{
+    const username = req.body.username;
+    const password = req.body.password;
+    try{
+        const result = await db.query("select * from users where username = $1", [username]);
+        if(result.rows.length>0){
+            const user = result.rows[0];
+            const match = await bcrypt.compare(password, user.password);
+            if(match){
+                res.json({'success':true})
+            }else{
+                res.status(401).json({'success': false})
+            }
+        }
+    }catch(err){
+        console.log("databse connection error: ",err)
+        res.status(500).json({'success':false})
+    }
+});
 
 app.listen(port,()=>{
     console.log(`Listening on port: ${port}`);
