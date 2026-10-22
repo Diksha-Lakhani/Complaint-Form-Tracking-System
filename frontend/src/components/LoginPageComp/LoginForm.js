@@ -18,6 +18,12 @@ function LoginForm() {
             });
             const data = await response.json();
             if (response.ok && data.success) {
+                sessionStorage.setItem("username", username);
+                sessionStorage.setItem("firstName", data.firstName);
+                sessionStorage.setItem("lastName", data.lastName);
+                sessionStorage.setItem("phone", data.phone);
+                sessionStorage.setItem("email", data.email);
+
                 navigate("/home", { state: { message: "Logged in!" } });
             } else {
                 setPassword("");

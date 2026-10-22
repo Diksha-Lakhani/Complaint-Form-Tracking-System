@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-.complaint_form_container{
-    font-family:"Poppins";
+.complaint_form_container {
+    font-family: "Poppins";
     padding: 30px 10%;
-    color:#427F8C;
+    color: #427F8C;
     background: linear-gradient(to bottom, #FFFFFF, #CCCCCC);
 }
-.category{
+
+.category {
     display: flex;
     gap: 10px;
 }
+
 .complaint_form {
     background-color: #427F8C;
     color: white;
@@ -17,15 +19,20 @@
     border-radius: 20px;
     margin: 30px auto;
 }
-.complaint_subcontainer h1,p{
+
+.complaint_subcontainer h1,
+p {
     text-align: center;
 }
+
 .complaint_form label {
     display: block;
     margin-top: 10px;
 }
-.complaint_form input,textarea{
-    font-family:"Poppins";
+
+.complaint_form input,
+textarea {
+    font-family: "Poppins";
     width: 95%;
     padding: 10px;
     margin-top: 5px;
@@ -33,8 +40,9 @@
     border: none;
     color: #919191;
 }
+
 .complaint_form select {
-    font-family:"Poppins";
+    font-family: "Poppins";
     border-radius: 90px;
     border: none;
     appearance: none;
@@ -43,33 +51,42 @@
     padding: 10px 20px;
     background-color: #C75858;
 }
+
 .complaint_form textarea {
     resize: vertical;
     min-height: 80px;
 }
-.contact_info_container{
+
+.contact_info_container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px;
 }
-.location_pin_container{
+
+.contact {
+    width: 85%;
+}
+
+.location_pin_container {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap:10px;
+    gap: 10px;
 }
-.left_align{
+
+.left_align {
     text-align: left;
     font-size: 13px;
     margin-bottom: 10px;
 }
-.back_btn{
-    display: flex;         
-    align-items: center;   
+
+.back_btn {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 8px; 
+    gap: 8px;
     background: #394866;
     color: white;
-    font-family:"Poppins";
+    font-family: "Poppins";
     border: none;
     padding: 10px 20px;
     margin-top: 0px;
@@ -77,14 +94,17 @@
     cursor: pointer;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
 }
-.back_btn:hover{
+
+.back_btn:hover {
     transform: scale(1.03);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
-.back_btn:active{
+
+.back_btn:active {
     transform: scale(0.98);
 }
-.upload_container{
+
+.upload_container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,31 +114,94 @@
     color: #919191;
     padding: 40px 0;
 }
-.back_btn_span{
+
+.back_btn_span {
     display: flex;
     align-items: center;
 }
+
 .submit_btn {
-    font-size: 20px;         
-    font-family:"Poppins";
+    font-size: 20px;
+    font-family: "Poppins";
     background-color: #FFBB00;
     color: black;
-    padding: 10px;
+    padding: 5px;
     margin-top: 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     width: 20%;
+    min-width: 150px;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .submit_btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
-.submit_btn:active{
+
+.submit_btn:active {
     transform: scale(0.98);
 }
-.submit_btn_container{
+
+.submit_btn_container {
     display: flex;
     justify-content: center;
+}
+
+.fileList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.fileList table {
+    width: 75%;
+    border-collapse: collapse;
+    text-align: left;
+    border: none !important;
+    /* Overrides inline border attribute */
+    overflow-x: auto;
+    background-color: #76a1aa;
+    border-radius: 20px;
+    box-shadow: #13191b;
+}
+
+.fileList th,
+td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #6b939b;
+    font-size: 0.9rem;
+}
+
+.fileList th {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #ddf9ff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.fileList tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.removeBtn {
+    background: none;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(193, 50, 69);
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.removeBtn:hover {
+    background-color: rgba(193, 50, 69, 0.7);
+    color: #c4deff;
 }

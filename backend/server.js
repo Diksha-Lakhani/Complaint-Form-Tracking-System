@@ -5,6 +5,8 @@ import pg from "pg";
 import bcrypt from "bcrypt";
 import cors from "cors";
 import nodemailer from 'nodemailer';
+import multer from "multer";
+import path from "path";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -21,6 +23,8 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+app.use("/uploads", express.static("uploads"));
+
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -29,17 +33,31 @@ const transporter = nodemailer.createTransport({
     },
 })
 
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "uploads");        //tells where to save the files
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);        //generates a file name with timestamp and unique a random number so that people with same file anmes are not overwritten
+        cb(null, uniqueSuffix + path.extname(file.originalname));       //gets the extension of the original file and joins all of them together
+    }
+});
+const upload = multer({ storage: storage });
+
 app.post("/signup", async (req, res) => {
     const username = req.body.username.trim();
     const email = req.body.email.trim();
+    const phone = req.body.phone.trim();
     const password = req.body.password.trim();
+    const firstName = req.body.firstName.trim();
+    const lastName = req.body.lastName.trim();
 
     const saltRounds = 10;
     try {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
         await db.query(
-            "INSERT INTO users (username, password, email) VALUES ($1, $2, $3)",
-            [username, hashedPassword, email]
+            "INSERT INTO users (username, password, email, phone, first_name, last_name) VALUES ($1, $2, $3, $4, $5, $6)",
+            [username, hashedPassword, email, phone, firstName, lastName]
         );
         res.json({ 'result': true })
     } catch (err) {
@@ -57,7 +75,7 @@ app.post("/login", async (req, res) => {
             const user = result.rows[0];
             const match = await bcrypt.compare(password, user.password);
             if (match) {
-                res.json({ 'success': true })
+                res.json({ 'success': true, 'firstName': user.first_name, 'lastName': user.last_name, 'phone': user.phone, 'email': user.email })
             } else {
                 res.status(401).json({ 'success': false })
             }
@@ -90,10 +108,30 @@ app.post("/forgotPassword", async (req, res) => {
         return res.json({ 'success': true, 'message': 'Link for changing password has been sent to the registered email address.' })
 
     } catch (err) {
-        console.log("databse connection error: ", err)
+        console.log("Databse connection error: ", err)
         res.status(500).json({ 'success': false });
     }
 
+})
+
+app.post("/setComplaint", upload.array("photo", 10), async (req, res) => {      //passing the request of photo label to upload function with max files 10 which send the result to req.files
+    try {
+        const formData = JSON.parse(req.body.formData);
+        const photoPaths = req.files ? req.files.map(file=> `./uploads/${file.filename}`).join(",") : null;
+        const result = await db.query(
+            "insert into complaints(type, title, description, loc, pincode, photo_path) values($1, $2, $3, $4, $5, $6) RETURNING id", 
+            [formData.issueType, formData.title, formData.description, formData.location, formData.pinCode, photoPaths]
+        );
+        
+        const newId = result.rows[0].id;
+        const trackId = `CMP${String(newId).padStart(3, '0')}`;
+
+        await db.query("update complaints set trackid = $1 where id = $2", [trackId, newId]);
+        res.json({'success':true, 'trackid': trackId});
+    } catch (err) {
+        console.log("Database connection error: ", err)
+        res.status(500).json({ 'success': false });
+    }
 })
 
 app.listen(port, () => {

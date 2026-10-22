@@ -6,20 +6,22 @@ function SignUp() {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
 
     const handleSignUp = async(event) => {
         event.preventDefault();
-        if (password !== confirmPassword) {
-            alert("Passwords do not match! Please try again.");
-            return; 
+        if (phone.length !== 10){
+            alert("Phone number should be 10 digits.")
+            return;
         }
         try{
             const response = await fetch("http://localhost:4000/signup",{
                 method:"POST",
                 headers: {"Content-Type": "application/json",},
-                body: JSON.stringify({ username, password, email }),
+                body: JSON.stringify({ username, password, email, phone, firstName, lastName }),
             });
             const data = await response.json();
             if(response.ok && data.result){
@@ -28,7 +30,10 @@ function SignUp() {
             }else{
                 setPassword("");
                 setUsername("");
-                setConfirmPassword("");
+                setEmail("");
+                setFirstName("");
+                setLastName("");
+                setPhone("");
                 alert("Registartion failed, try another username.")
             }
         }catch(err){
@@ -62,20 +67,32 @@ function SignUp() {
                         <input type="text" id="username" className="input" placeholder="Enter username " required value = {username} onChange={(e) => setUsername(e.target.value)}/>
                     </div>
 
+                    <div className="firstName_input">
+                        <label htmlFor="firstName">Enter your first name</label>
+                        <input type="text" id="firstName" className="input" placeholder="Enter first name" required value = {firstName} onChange={(e) => setFirstName(e.target.value)}/>
+                    </div>
+
+                    <div className="lastName_input">
+                        <label htmlFor="lastName">Enter your last name</label>
+                        <input type="text" id="lastName" className="input" placeholder="Enter last name" required value = {lastName} onChange={(e) => setLastName(e.target.value)}/>
+                    </div>
+
+
                     <div className="email_input">
                         <label htmlFor="emailAdd">Enter your Email Address</label>
                         <input type="email" id="emailAdd" className="input" placeholder="Enter email address" required value = {email} onChange={(e) => setEmail(e.target.value)}/>
                     </div>
-                    
+
+                    <div className="phone_input">
+                        <label htmlFor="phoneNum">Enter your Phone Number</label>
+                        <input type="number" id="phoneNum" className="input" placeholder="Enter phone number" required value = {phone} onChange={(e) => setPhone(e.target.value)}/>
+                    </div>
+
                     <div className="password_input">
                         <label htmlFor="password">Enter your Password</label>
                         <input type="password" id="password" className="input" placeholder="Enter password" required value = {password} onChange={(e) => setPassword(e.target.value)}/>
                     </div>
 
-                    <div className="password_input">
-                        <label htmlFor="confirmPassword">Confirm your Password</label>
-                        <input type="password" id="confirmPassword" className="input" placeholder="Confirm Password" value = {confirmPassword} required onChange={(e) => setConfirmPassword(e.target.value)}/>
-                    </div>
                 </div>
                 <button type="submit" className="signin_btn">Create Account</button>
             </form>

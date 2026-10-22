@@ -1,26 +1,28 @@
-import React,{useState} from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { MoveLeft, MoveRight, CircleCheck } from "lucide-react";
 import "./ComplaintRegistered.css";
 
 function Register() {
     const navigate = useNavigate();
-    const handleBack = () => {
+    const location = useLocation();
+    const [trackId, setTrackId] = useState("");
+
+    function handleBack() {
         navigate("/home");
     };
-    const handleTracking=(trackingId)=>{
-        navigate("/track", {state: { selectedTrackingId: trackingId }});
+
+    function handleTracking() {
+        navigate("/track", { state: { selectedTrackingId: trackId } });
     };
-    function generateAlphanumeric(length) {
-        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        let result = "";
-        for (let i = 0; i < length; i++) {
-            const randomIndex = Math.floor(Math.random() * chars.length);
-            result += chars.charAt(randomIndex);
+
+    useEffect(() => {
+        console.log("Location state received:", location.state);
+        if (location.state?.trackId) {
+            setTrackId(location.state.trackId);
         }
-        return result;
-    }
-    const [trackID] = useState(() => generateAlphanumeric(6));
+    }, [location.state]);
+
     return (
         <div className="register_container">
             <div className="btn_container">
@@ -36,13 +38,13 @@ function Register() {
                 <h2>Your Complaint has been registered!</h2>
                 <p className="sub_text">Your Track ID is</p>
                 <div className="track_id_badge1">
-                    {trackID}
+                    {trackId}
                 </div>
                 <p className="footer_text">Use this ID to track your complaint anytime</p>
             </div>
             <br />
             <div className="tracking_btn_container">
-                <button className="tracking_btn" onClick={()=>handleTracking(trackID)}>
+                <button className="tracking_btn" onClick={() => handleTracking(trackId)}>
                     Tracking <MoveRight size={18} />
                 </button>
             </div>
