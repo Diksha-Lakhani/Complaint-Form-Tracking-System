@@ -117,17 +117,38 @@ app.post("/forgotPassword", async (req, res) => {
 app.post("/setComplaint", upload.array("photo", 10), async (req, res) => {      //passing the request of photo label to upload function with max files 10 which send the result to req.files
     try {
         const formData = JSON.parse(req.body.formData);
-        const photoPaths = req.files ? req.files.map(file=> `./uploads/${file.filename}`).join(",") : null;
+        const photoPaths = req.files ? req.files.map(file => `./uploads/${file.filename}`).join(",") : null;
         const result = await db.query(
-            "insert into complaints(type, title, description, loc, pincode, photo_path) values($1, $2, $3, $4, $5, $6) RETURNING id", 
+            "insert into complaints(type, title, description, loc, pincode, photo_path) values($1, $2, $3, $4, $5, $6) RETURNING id",
             [formData.issueType, formData.title, formData.description, formData.location, formData.pinCode, photoPaths]
         );
-        
+
         const newId = result.rows[0].id;
         const trackId = `CMP${String(newId).padStart(3, '0')}`;
 
-        await db.query("update complaints set trackid = $1 where id = $2", [trackId, newId]);
-        res.json({'success':true, 'trackid': trackId});
+        const officials = await db.query("select id from officials where department = $1", [formData.issueType])
+        const random = Math.floor(Math.random() * officials.rows.length)
+
+        await db.query("update complaints set officials_id = $1, trackid = $2 where id = $3", [officials.rows[random].id, trackId, newId]);
+
+        res.json({ 'success': true, 'trackid': trackId });
+    } catch (err) {
+        console.log("Database connection error: ", err)
+        res.status(500).json({ 'success': false });
+    }
+});
+
+app.post("/trackComplaint", async (req, res) => {
+    try {
+        const trackid = req.body.trackid;
+        const complaint = await db.query(`
+            select c.title, c.type, c.description, c.loc, c.pincode, c.photo_path, c.created_at, c.status ,u.first_name, u.last_name, u.phone, u.email, o.designation 
+            from complaints c 
+            join officials o on o.id = c.officials_id 
+            join users u on u.id = o.user_id
+            where trackid = $1`, [trackid])
+        console.log(complaint.rows[0]);
+        res.json({ 'success': true, 'complaint': complaint.rows[0] })
     } catch (err) {
         console.log("Database connection error: ", err)
         res.status(500).json({ 'success': false });
