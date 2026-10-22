@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Tracking.css";
-import { Road, Pin, Calendar, User, MoveLeft, Phone, Mail, MessageCircle, CheckCircle2, Clock, Circle } from "lucide-react";
+import { Road, Droplet, Trash2, Zap, BadgeAlert, Pin, Calendar, User, MoveLeft, Phone, Mail, MessageCircle, CheckCircle2, Clock, Circle } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Track() {
@@ -43,6 +43,25 @@ function Track() {
             }
         }
     }
+
+    const categoryColors = {
+        road: "#F23D3D",
+        water: "#33C7CC",
+        garbage: "#6FE63C",
+        electricity: "#E0D231",
+        others: "#7e13d0"
+    };
+    const currentCategoryColor = categoryColors[complaint.type] || "#000000";
+
+    const cat = {
+        road: Road,
+        water: Droplet,
+        garbage:Trash2,
+        electricity:Zap,
+        others:BadgeAlert
+    }
+    const CurrentCat = cat[complaint.type] || Road;
+
     const statusOrder = ['submitted', 'under review', 'assigned', 'in progress', 'resolved']
     const currentStatusIndex = statusOrder.indexOf(complaint?.status)
 
@@ -54,16 +73,16 @@ function Track() {
         { title: "Resolved and Closed", desc: "Issue Resolved and closed", key: "resolved" },
     ];
 
-    const timelineSteps = stepsConfig.map((step, index)=>{
+    const timelineSteps = stepsConfig.map((step, index) => {
         let stepStatus = 'pending';
-        if(currentStatusIndex !== -1){
-            if(index < currentStatusIndex){
-                stepStatus  = 'complete';
-            } else if(index == currentStatusIndex){
+        if (currentStatusIndex !== -1) {
+            if (index < currentStatusIndex) {
+                stepStatus = 'complete';
+            } else if (index == currentStatusIndex) {
                 stepStatus = 'current';
             }
         }
-        return{...step, status: stepStatus}
+        return { ...step, status: stepStatus }
     });
 
     return (
@@ -89,7 +108,7 @@ function Track() {
                 <div className="hidden_container">
                     <div className="track_grid">
                         <div className="complaint_track_container">
-                            <div className="track_id_badge"><Road color="#F23D3D" size={35} strokeWidth={1.5} />Tracking ID: <br />#{DisplayID}</div>
+                            <div className="track_id_badge"><CurrentCat color={currentCategoryColor} size={35} strokeWidth={1.5} />Tracking ID: <br />#{DisplayID}</div>
                             <div className="track_card">
                                 <h4>{complaint?.title}</h4>
                                 <p className="left_align">{complaint?.description}</p>
