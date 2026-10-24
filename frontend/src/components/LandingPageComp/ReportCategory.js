@@ -1,4 +1,3 @@
-import React from "react";
 import { Road,Droplet,Trash2,Zap,BadgeAlert} from 'lucide-react';
 import "./ReportCategory.css";
 import {useNavigate} from "react-router-dom";
@@ -15,27 +14,27 @@ function Report()
             <p>Choose the type of issue you want to report</p>
             <br/>
             <div className="issue_container">
-                <div className="issue_box" onClick={() => handleCategory("Road")}>
+                <div className="issue_box" onClick={() => handleCategory("road")}>
                     <Road color="#F23D3D" size={52}  strokeWidth={1.5}/>
                     <br/>
                     <span>Road Issue</span>
                 </div>
-                <div className="issue_box" onClick={() => handleCategory("Water")}>
+                <div className="issue_box" onClick={() => handleCategory("water")}>
                     <Droplet color="#33C7CC" size={52} strokeWidth={1.5}/>
                     <br/>
                     <span>Water Issue</span>
                 </div>
-                <div className="issue_box" onClick={() => handleCategory("Garbage")}>
+                <div className="issue_box" onClick={() => handleCategory("garbage")}>
                     <Trash2 color="#6FE63C" size={52} strokeWidth={1.5}/>
                     <br/>
                     <span>Garbage Issue</span>
                 </div>
-                <div className="issue_box" onClick={() => handleCategory("Electricity")}>
+                <div className="issue_box" onClick={() => handleCategory("electricity")}>
                     <Zap color="#E0D231" size={52} strokeWidth={1.5}/>
                     <br/>
                     <span>Electricity Issue</span>
                 </div>
-                <div className="issue_box" onClick={() => handleCategory("Others")}>
+                <div className="issue_box" onClick={() => handleCategory("others")}>
                     <BadgeAlert color="#8e0c91" size={52} strokeWidth={1.5}/>
                     <br/>
                     <span>Others</span>

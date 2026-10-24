@@ -78,7 +78,7 @@ function Track() {
         if (currentStatusIndex !== -1) {
             if (index < currentStatusIndex) {
                 stepStatus = 'complete';
-            } else if (index == currentStatusIndex) {
+            } else if (index === currentStatusIndex) {
                 stepStatus = 'current';
             }
         }

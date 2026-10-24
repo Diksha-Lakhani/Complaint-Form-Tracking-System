@@ -1,23 +1,47 @@
-import React,{useState} from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { Pin, Calendar, User, MoveRight,SearchCheck } from "lucide-react";
+import { Road, Droplet, Trash2, Zap, BadgeAlert } from "lucide-react";
+import { Pin, Calendar, User, MoveRight, SearchCheck } from "lucide-react";
 import "./RecentComplaints.css";
 import { useNavigate } from "react-router-dom";
 
 function RecentComplaints() {
     const navigate = useNavigate();
-    const HandleTrack=(TrackerId)=>{
+    const [complaints, setComplaints] = useState([]);
+    const cat = {
+        road: Road,
+        water: Droplet,
+        garbage: Trash2,
+        electricity: Zap,
+        others: BadgeAlert
+    }
+    const progressSteps = { "submitted": 1, "under review": 2, "assigned": 3, "in progress": 4, "resolved": 5, };
+
+    const HandleTrack = (TrackerId) => {
         if (TrackerId) {
-            navigate("/track", {state: { selectedTrackingId: TrackerId }}); 
+            navigate("/track", { state: { selectedTrackingId: TrackerId } });
         }
     }
-    const Track={
-        1:"23dc1y",
-        2:"r7Crqa",
-        3:"9aQR4X",
-        4:"y6XW34"
-    };
+
+    useEffect(() => {
+        const fetchComplaints = async () => {
+            try {
+                const response = await fetch('http://localhost:4000/getComplaint');
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    setComplaints(data.complaints);
+                } else {
+                    alert("Couldn't connect to database. Please try again in some time.");
+                }
+            } catch (err) {
+                console.error("Error fetching complaints:", err);
+            }
+        };
+        fetchComplaints();
+    }, [])
+
     return (
         <div className="recent_complaints_container">
             <div className="title_container">
@@ -26,92 +50,42 @@ function RecentComplaints() {
             </div>
             <br />
             <div className="complaints_container">
-                <div className="complaints_box">
-                    <h2>PotHole on Main road</h2>
-                    <p>Large pothole causing accidents near the market area. Has been there for 2 weeks.</p>
-                    <h3>Progress</h3>
-                    <div className="progress_bar">
-                        <div className="step completed"></div>
-                        <div className="step completed"></div>
-                        <div className="step"></div>
-                        <div className="step"></div>
-                        <div className="step"></div>
-                    </div>
-                    <p><span><Pin size={13} /></span>    Main Street, Near City Market</p>
-                    <div className="date_name">
-                        <p><span><Calendar size={13} /></span>    Feb 14, 2026</p>
-                        <p><span><SearchCheck size={15} /></span>    {Track[1]}</p>
-                        <p><span><User size={13} /></span>    Rajashekar</p>
-                    </div>
-                    <div className="track_btn_container">
-                        <button onClick={()=>HandleTrack(Track[1])}>Track progress  <span className="right_arrow"><MoveRight size={20} /></span></button>
-                    </div>
-                </div>
-                <div className="complaints_box">
-                    <h2>Water supply isn't regular</h2>
-                    <p>No water supply for the past 3 days in our area. Tankers are also not available.</p>
-                    <h3>Progress</h3>
-                    <div className="progress_bar">
-                        <div className="step completed"></div>
-                        <div className="step completed"></div>
-                        <div className="step completed"></div>
-                        <div className="step completed"></div>
-                        <div className="step"></div>
-                    </div>
-                    <p><span><Pin size={13} /></span>    Green Park Colony</p>
-                    <div className="date_name">
-                        <p><span><Calendar size={13} /></span>    Feb 14, 2026</p>
-                        <p><span><SearchCheck size={15} /></span>    {Track[2]}</p>
-                        <p><span><User size={13} /></span>    Priya Sharma</p>
-                    </div>
-                    <div className="track_btn_container">
-                        <button onClick={()=>HandleTrack(Track[2])}>Track progress  <span className="right_arrow"><MoveRight size={20} /></span></button>
-                    </div>
-                </div>
-                <div className="complaints_box">
-                    <h2>Garbage not cleaned yet</h2>
-                    <p>Garbage has been piling up in our street for over a week. Causing health hazard</p>
-                    <h3>Progress</h3>
-                    <div className="progress_bar">
-                        <div className="step completed"></div>
-                        <div className="step completed"></div>
-                        <div className="step completed"></div>
-                        <div className="step"></div>
-                        <div className="step"></div>
-                    </div>
-                    <p><span><Pin size={13} /></span>    Gandhi Road, Block B</p>
-                    <div className="date_name">
-                        <p><span><Calendar size={13} /></span>    Feb 14, 2026</p>
-                        <p><span><SearchCheck size={15} /></span>    {Track[3]}</p>
-                        <p><span><User size={13} /></span>    Ananya Joshi</p>
-                    </div>
-                    <div className="track_btn_container">
-                        <button onClick={()=>HandleTrack(Track[3])}>Track progress  <span className="right_arrow"><MoveRight size={20} /></span></button>
-                    </div>
+                {complaints.map((complaint, index) => {
+                    const CurrentCat = cat[complaint.type] || Road;
+                    const progress = progressSteps[complaint.status];
+                    const status = []
+                    for (let i = 0; i < 5; i++) {
+                        if (i < progress) {
+                            status.push(<div className="step completed"></div>)
+                        } else {
+                            status.push(<div className="step"></div>)
+                        }
+                    }
 
-                </div>
-                <div className="complaints_box">
-                    <h2>Street lights are not working</h2>
-                    <p>Street light at the corner has been non-functional for over a month creating safety</p>
-                    <h3>Progress</h3>
-                    <div className="progress_bar">
-                        <div className="step completed"></div>
-                        <div className="step "></div>
-                        <div className="step"></div>
-                        <div className="step"></div>
-                        <div className="step"></div>
-                    </div>
-                    <p><span><Pin size={13} /></span>    Nehru Nagar, Corner of 4th Cross</p>
-                    
-                    <div className="date_name">
-                        <p><span><Calendar size={13} /></span>    Feb 14, 2026</p>
-                        <p><span><SearchCheck size={15} /></span>    {Track[4]}</p>
-                        <p><span><User size={13} /></span>    Amit Singh</p>
-                    </div>
-                    <div className="track_btn_container">
-                        <button onClick={()=>HandleTrack(Track[4])}>Track progress  <span className="right_arrow"><MoveRight size={20} /></span></button>
-                    </div>
-                </div>
+                    return (
+                        <div className="complaints_box" key={index}>
+                            <h2>{complaint.title}</h2>
+                            <p>{complaint.description}</p>
+                            <h3>Progress</h3>
+                            <div className="progress_bar">
+                                {status}
+                            </div>
+                            <p><span><Pin size={13} /></span>{complaint.loc}</p>
+                            <div className="date_name">
+                                <p><span><Calendar size={13} /></span>{complaint?.created_at ? new Date(complaint.created_at).toLocaleString('en-US', {
+                                    day: 'numeric',
+                                    month: 'short',
+                                    year: 'numeric',
+                                }) : ''}</p>
+                                <p><span><SearchCheck size={15} /></span>    {complaint.trackid}</p>
+                                <p style={{ textTransform: "capitalize" }}><span><CurrentCat size={15} /></span> {complaint.type}</p>
+                            </div>
+                            <div className="track_btn_container">
+                                <button onClick={() => HandleTrack(complaint.trackid)}>Track progress  <span className="right_arrow"><MoveRight size={20} /></span></button>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );

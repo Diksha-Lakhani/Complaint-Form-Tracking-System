@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./CompForm.css";
 import { MoveLeft, User, Phone, Mail, MapPin, Upload } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";

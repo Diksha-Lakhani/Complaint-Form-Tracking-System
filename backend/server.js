@@ -155,6 +155,17 @@ app.post("/trackComplaint", async (req, res) => {
     }
 })
 
+app.get("/getComplaint", async(req,res)=>{
+    try {
+        const complaints = await db.query(`select * from complaints limit 10`);
+        console.log(complaints.rows);
+        res.json({ 'success': true, 'complaints': complaints.rows })
+    } catch (err) {
+        console.log("Database connection error: ", err)
+        res.status(500).json({ 'success': false });
+    }
+})
+
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
 });

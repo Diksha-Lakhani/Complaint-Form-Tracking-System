@@ -1,4 +1,3 @@
-import React from "react";
 import { BookOpen, MoveUpRight, Check, Clock } from 'lucide-react';
 import "./ReviewProgress.css";
 

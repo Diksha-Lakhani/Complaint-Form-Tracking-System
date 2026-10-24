@@ -1,4 +1,3 @@
-import React from "react";
 import { Eye,Bell,User,Shield} from 'lucide-react';
 import "./Content.css";
 
